@@ -79,8 +79,21 @@ export default function Form({ open, handleClose }: Props) {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
-        <Button>Add Book</Button>
+        <Button>Cancel</Button>
+        <Button
+          onClick={() => {
+            (addBook as (book: TBook) => Promise<void>)(formData as TBook);
+            setFormData({
+              title: "",
+              author: "",
+              pages: 0,
+              read: false,
+            });
+            handleClose();
+          }}
+        >
+          Add Book
+        </Button>
       </DialogActions>
     </Dialog>
   );
