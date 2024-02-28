@@ -1,4 +1,3 @@
-import { Label } from "@mui/icons-material";
 import {
   Button,
   TextField,
@@ -79,7 +78,7 @@ export default function Form({ open, handleClose }: Props) {
         />
       </DialogContent>
       <DialogActions>
-        <Button>Cancel</Button>
+        <Button onClick={handleClose}>Cancel</Button>
         <Button
           onClick={() => {
             (addBook as (book: TBook) => Promise<void>)(formData as TBook);
